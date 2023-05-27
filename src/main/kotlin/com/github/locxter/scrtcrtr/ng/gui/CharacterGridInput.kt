@@ -21,7 +21,7 @@ class CharacterGridInput() : JScrollPane() {
     var rowCount = 2
         set(value) {
             // Resize if needed
-            if (field != value) {
+            if (field != value && value >= 0) {
                 if (field < value) {
 
                     // Add rows when currently too few exist
@@ -45,7 +45,7 @@ class CharacterGridInput() : JScrollPane() {
     var columnCount = 2
         set(value) {
             // Resize if needed
-            if (field != value) {
+            if (field != value && value >= 0) {
                 if (field < value) {
                     // Add columns when currently too few exist
                     for (inputRow in inputGrid) {

@@ -4,7 +4,7 @@ class CharacterGrid() {
     var rowCount: Int = 0
         set(value) {
             // Resize if needed
-            if (value != field) {
+            if (value != field && value >= 0) {
                 if (field < value) {
                     // Add rows when currently too few exist
                     for (i in field until value) {
@@ -18,13 +18,13 @@ class CharacterGrid() {
                     // Delete rows when currently to many exist
                     grid.subList(value, field).clear()
                 }
+                field = value
             }
-            field = value
         }
     var columnCount: Int = 0
         set(value) {
             // Resize if needed
-            if (value != field) {
+            if (value != field && value >= 0) {
                 if (field < value) {
                     // Add columns when currently too few exist
                     for (row in grid) {
@@ -38,8 +38,8 @@ class CharacterGrid() {
                         row.subList(value, field).clear()
                     }
                 }
+                field = value
             }
-            field = value
         }
     val grid: MutableList<MutableList<Char>> = mutableListOf()
 
